@@ -253,7 +253,8 @@ section{padding:84px 0;scroll-margin-top:72px}
 /* ---------- schedule ---------- */
 .sched{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .sched-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:stretch}
-.rules .btn{margin-top:auto}
+.rule-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:auto}
+.rule-btns .btn{white-space:normal;text-align:center;line-height:1.25;min-height:58px;padding:8px 14px;font-size:15px}
 .week{padding:24px;border-radius:24px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
 .legend{display:flex;flex-wrap:wrap;gap:18px;font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:18px}
 .legend span{display:inline-flex;align-items:center;gap:8px}
@@ -268,7 +269,6 @@ section{padding:84px 0;scroll-margin-top:72px}
 .bar i{font-style:normal;font-weight:600;opacity:.85}
 .bar i::before{content:"· "}
 [data-theme="dark"] .bar .m{color:#0F1C13}
-.row.today .bar{box-shadow:0 0 0 2px var(--cedar)}
 .rules{display:flex;flex-direction:column;gap:14px}
 .rule{display:flex;gap:14px;padding:18px;border-radius:18px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
 .rule .ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--leaf-soft);color:var(--green)}
@@ -677,7 +677,10 @@ footer .cols div{display:grid;gap:6px}
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
         <div><b data-i18n="r3_b">Aralashtirmaymiz</b><p data-i18n="r3_p">Er-xotin, yigit-qiz birga kira olmaydi. Faqat bir jinsdagi jamoa yoki yolg‘iz.</p></div>
       </div>
-      <a class="btn btn-cedar btn-block" data-tg="women" href="https://t.me/bochkazdorovy" target="_blank" rel="noopener"><span data-i18n="btn_women">Ayollar soatiga yozilish</span></a>
+      <div class="rule-btns">
+        <a class="btn btn-main" data-tg="men" href="https://t.me/bochkazdorovy" target="_blank" rel="noopener"><span data-i18n="btn_men">Erkaklar soatiga yozilish</span></a>
+        <a class="btn btn-cedar" data-tg="women" href="https://t.me/bochkazdorovy" target="_blank" rel="noopener"><span data-i18n="btn_women">Ayollar soatiga yozilish</span></a>
+      </div>
     </div>
     </div>
   </div>
@@ -792,14 +795,14 @@ footer .cols div{display:grid;gap:6px}
     <div class="addr">
       <div>
         <div class="a" data-i18n="loc_addr">Toshkent, Yunusobod, Farog‘at 2-tor ko‘chasi, 38</div>
-        <div class="h" data-i18n="loc_hint">259-maktab yonida · har kuni 11:00–23:00</div>
+        <div class="h" data-i18n="loc_hint">Mo‘ljal: Gastronom · har kuni 11:00–23:00</div>
         <div class="btns">
             <a class="btn btn-main btn-sm" href="https://yandex.uz/maps/?rtext=~41.376512%2C69.282110&amp;rtt=auto" target="_blank" rel="noopener"><span data-i18n="btn_route_ya">Yandex: yo‘nalish</span></a>
             <a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=41.376512,69.282110" target="_blank" rel="noopener">Google Maps</a>
         </div>
       </div>
       <ol class="way">
-        <li data-i18n="w1">Katta yozuvli yashil pavilyonni toping — yonida King Somsa.</li>
+        <li data-i18n="w1">Mo‘ljal — Gastronom, biz uning yonidamiz.</li>
         <li data-i18n="w2">Qora eshikdan kiring.</li>
         <li data-i18n="w3">Yashil zinadan pastga tushing — siz yetib keldingiz!</li>
       </ol>
@@ -957,7 +960,7 @@ footer .cols div{display:grid;gap:6px}
     r1_b:'Женщины: пн–пт, 11:00–13:00', r1_p:'Приходите одна или с подругами.',
     r2_b:'Мужчины: всё остальное время', r2_p:'В будни 13:00–23:00, в субботу и воскресенье — весь день.',
     r3_b:'Не смешиваем', r3_p:'Супруги и пары вместе не проходят. Только гости по одному или компании одного пола.',
-    btn_women:'Записаться на женские часы',
+    btn_men:'Записаться на мужские часы', btn_women:'Записаться на женские часы',
     gr_h2:'Вместо чайханы — с друзьями в бочку',
     gr_lead:'Надоели жирный фастфуд и бесконечный плов? Проведите время с пользой для тела. Компания из 5–7 человек — без проблем: все успеют всё по очереди.',
     btn_group:'Записаться компанией',
@@ -969,8 +972,8 @@ footer .cols div{display:grid;gap:6px}
     rv_h2:'Что говорят гости', rv_p:'Настоящие отзывы с Яндекс Карт — без правок.',
     rv_all:'на Яндекс Картах · все отзывы →', rv_d_may:'Май 2026 · Яндекс Карты', rv_d_jun:'Июнь 2026 · Яндекс Карты',
     loc_h2:'Как нас найти',
-    loc_addr:'Ташкент, Юнусабад, 2-й проезд Фарогат, 38', loc_hint:'Рядом со школой № 259 · каждый день 11:00–23:00',
-    w1:'Найдите зелёный павильон с большой вывеской — рядом King Somsa.', w2:'Заходите в чёрную дверь.', w3:'Спускайтесь по зелёной лестнице — вы на месте!',
+    loc_addr:'Ташкент, Юнусабад, 2-й проезд Фарогат, 38', loc_hint:'Ориентир: Гастроном · каждый день 11:00–23:00',
+    w1:'Ориентир — Гастроном, мы рядом с ним.', w2:'Заходите в чёрную дверь.', w3:'Спускайтесь по зелёной лестнице — вы на месте!',
     btn_route_ya:'Маршрут в Яндексе',
     bk_h2:'Быстрая запись',
     bk_p:'Выберите варианты — в Telegram откроется готовое сообщение, останется нажать «Отправить». Администратор подскажет свободное время.',
@@ -996,6 +999,7 @@ footer .cols div{display:grid;gap:6px}
       title:'«Бочка Здоровья» — fitobochka, sauna va massaj · Yunusobod, Toshkent',
       hello:'Assalomu alaykum! Saytdan yozyapman. ',
       general:'Fitobochka, sauna, basseyn va massaj protsedurasiga yozilmoqchiman. Qachon kelsam bo‘ladi?',
+      men:'Erkaklar soatiga — fitobochka, sauna, basseyn va massaj protsedurasiga yozilmoqchiman. Qachon kelsam bo‘ladi?',
       women:'Ayollar soatiga — fitobochka, sauna, basseyn va massaj protsedurasiga yozilmoqchiman. Qachon kelsam bo‘ladi?',
       group:'Do‘stlar bilan jamoa bo‘lib fitobochka, sauna, basseyn va massaj protsedurasiga yozilmoqchimiz. Qachon kelsak bo‘ladi?',
       form:function(s){
@@ -1017,6 +1021,7 @@ footer .cols div{display:grid;gap:6px}
       title:'«Бочка Здоровья» — фитобочка, сауна и массаж · Юнусабад, Ташкент',
       hello:'Здравствуйте! Пишу с сайта. ',
       general:'Хочу записаться на процедуру: фитобочка, сауна, бассейн и массаж. Когда можно прийти?',
+      men:'Хочу записаться на мужские часы: фитобочка, сауна, бассейн и массаж. Когда можно прийти?',
       women:'Хочу записаться на женские часы: фитобочка, сауна, бассейн и массаж. Когда можно прийти?',
       group:'Хотим прийти компанией на фитобочку, сауну, бассейн и массаж. Когда можно прийти?',
       form:function(s){
