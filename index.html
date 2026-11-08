@@ -252,7 +252,8 @@ section{padding:84px 0;scroll-margin-top:72px}
 
 /* ---------- schedule ---------- */
 .sched{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.sched .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:start}
+.sched-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:stretch}
+.rules .btn{margin-top:auto}
 .week{padding:24px;border-radius:24px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
 .legend{display:flex;flex-wrap:wrap;gap:18px;font-size:14px;font-weight:600;color:var(--ink-2);margin-bottom:18px}
 .legend span{display:inline-flex;align-items:center;gap:8px}
@@ -260,12 +261,15 @@ section{padding:84px 0;scroll-margin-top:72px}
 .row{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:12px;padding:5px 0}
 .row .d{font-weight:700;font-size:14px;color:var(--muted)}
 .row.today .d{color:var(--ink)}
-.bar{display:flex;height:34px;border-radius:9px;overflow:hidden;background:var(--bg-2);font-size:12.5px;font-weight:700}
-.bar .w{width:20%;min-width:58px;background:var(--women);display:flex;align-items:center;justify-content:center;color:#2a1b08;white-space:nowrap}
-.bar .m{flex:1;background:var(--men);display:flex;align-items:center;padding:0 12px;color:#fff;white-space:nowrap;overflow:hidden}
+.bar{display:flex;gap:3px;height:38px;font-size:13px;font-weight:700}
+.bar > span{display:flex;align-items:center;gap:6px;padding:0 12px;border-radius:9px;white-space:nowrap;overflow:hidden}
+.bar .w{flex:0 0 34%;background:var(--women);color:#2a1b08}
+.bar .m{flex:1;background:var(--men);color:#fff}
+.bar i{font-style:normal;font-weight:600;opacity:.85}
+.bar i::before{content:"· "}
 [data-theme="dark"] .bar .m{color:#0F1C13}
 .row.today .bar{box-shadow:0 0 0 2px var(--cedar)}
-.rules{display:grid;gap:14px}
+.rules{display:flex;flex-direction:column;gap:14px}
 .rule{display:flex;gap:14px;padding:18px;border-radius:18px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
 .rule .ic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--leaf-soft);color:var(--green)}
 .rule.w .ic{background:var(--cedar-soft);color:var(--cedar-2)}
@@ -290,8 +294,6 @@ section{padding:84px 0;scroll-margin-top:72px}
 .st .people svg{width:18px;height:18px}
 .arr{display:flex;justify-content:center;padding:4px 0;color:var(--cedar)}
 .arr svg{width:22px;height:22px}
-.loop{display:flex;align-items:center;gap:10px;margin-top:16px;padding:12px 14px;border-radius:14px;background:var(--cedar-soft);color:var(--ink-2);font-size:14.5px;font-weight:600;line-height:1.4}
-.loop svg{flex:none;width:22px;height:22px;color:var(--cedar-2)}
 
 /* ---------- price ---------- */
 .prices{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -324,20 +326,15 @@ section{padding:84px 0;scroll-margin-top:72px}
 
 /* ---------- location ---------- */
 .loc{background:var(--surface);border-top:1px solid var(--line)}
-.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-.addr{padding:26px;border-radius:24px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
+.addr{display:grid;grid-template-columns:1fr 1fr;gap:22px 48px;align-items:center;padding:28px 30px;border-radius:24px;background:var(--surface-2);box-shadow:inset 0 0 0 1px var(--line)}
 .addr .a{font:700 21px/1.3 Rubik, sans-serif}
 .addr .h{margin-top:6px;color:var(--muted);font-size:15px}
-.way{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px;counter-reset:w}
+.way{list-style:none;padding:0;margin:0;display:grid;gap:14px;counter-reset:w}
 .way li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;line-height:1.5;counter-increment:w}
 .way li::before{content:counter(w);flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--cedar);color:#1d1408;font:700 14px/1 Rubik, sans-serif}
 .addr .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.photos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.photos figure{margin:0;position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4;background:var(--bg-2)}
-.photos img{width:100%;height:100%;object-fit:cover}
-.photos figcaption{position:absolute;left:10px;bottom:10px;right:10px;font-size:12.5px;font-weight:700;color:#fff;padding:6px 10px;border-radius:10px;background:rgba(14,24,16,.62);backdrop-filter:blur(4px)}
-.map{border-radius:24px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--bg-2);height:100%;min-height:420px}
-.map iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
+.map{margin-top:16px;border-radius:24px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--line);background:var(--bg-2);height:440px}
+.map iframe{width:100%;height:100%;border:0;display:block}
 
 /* ---------- booking ---------- */
 .book .card{display:grid;grid-template-columns:.85fr 1.15fr;border-radius:28px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
@@ -404,11 +401,14 @@ footer .cols div{display:grid;gap:6px}
 @media (max-width:820px){
   section{padding:64px 0}
   .hero{padding:24px 0 56px}
-  .hero .wrap, .fito .wrap, .sched .wrap, .groups .wrap, .loc-grid, .book .card, .offer{grid-template-columns:1fr}
+  .hero .wrap, .fito .wrap, .sched-grid, .groups .wrap, .book .card, .offer{grid-template-columns:1fr}
+  .sched-grid{gap:20px}
+  .addr{grid-template-columns:1fr}
   .hero-art{max-width:360px;order:-1}
   .fito .wrap{gap:32px}
   .groups .wrap{gap:32px}
-  .map, .map iframe{min-height:340px}
+  .map{height:360px}
+  .addr{padding:24px 22px}
   .book .side{padding:32px 24px}
   .form{padding:28px 22px}
   .offer .l, .offer .r{padding:28px 24px}
@@ -432,8 +432,12 @@ footer .cols div{display:grid;gap:6px}
   .inc-foot .btn{width:100%}
   .final .box{padding:44px 20px}
   .final .ctas .btn{flex:1 1 100%}
-  .bar{font-size:11.5px}
-  .bar .w{min-width:52px}
+  .week{padding:18px 14px}
+  .row{grid-template-columns:30px 1fr;gap:8px}
+  .bar{height:46px;font-size:12.5px}
+  .bar > span{flex-direction:column;justify-content:center;align-items:flex-start;gap:1px;line-height:1.15;padding:0 10px}
+  .bar .w{flex-basis:40%}
+  .bar i::before{content:none}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -649,11 +653,11 @@ footer .cols div{display:grid;gap:6px}
 <!-- ============ schedule ============ -->
 <section class="sched" id="sched">
   <div class="wrap">
-    <div>
-      <div class="sec-head" style="margin-bottom:28px">
-        <h2 data-i18n="sch_h2">Ish vaqti</h2>
-        <p class="sub-strong" data-i18n="sch_sub">Har kuni 11:00 dan 23:00 gacha</p>
-      </div>
+    <div class="sec-head" style="margin-bottom:28px">
+      <h2 data-i18n="sch_h2">Ish vaqti</h2>
+      <p class="sub-strong" data-i18n="sch_sub">Har kuni 11:00 dan 23:00 gacha</p>
+    </div>
+    <div class="sched-grid">
       <div class="week">
         <div class="legend">
           <span><i style="background:var(--women)"></i><span data-i18n="lg_w">Ayollar soati</span></span>
@@ -661,7 +665,6 @@ footer .cols div{display:grid;gap:6px}
         </div>
         <div id="weekRows"></div>
       </div>
-    </div>
     <div class="rules">
       <div class="rule w">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="5"/><path d="M12 13v8M9 18h6"/></svg></span>
@@ -676,6 +679,7 @@ footer .cols div{display:grid;gap:6px}
         <div><b data-i18n="r3_b">Aralashtirmaymiz</b><p data-i18n="r3_p">Er-xotin, yigit-qiz birga kira olmaydi. Faqat bir jinsdagi jamoa yoki yolg‘iz.</p></div>
       </div>
       <a class="btn btn-cedar btn-block" data-tg="women" href="https://t.me/bochkazdorovy" target="_blank" rel="noopener"><span data-i18n="btn_women">Ayollar soatiga yozilish</span></a>
+    </div>
     </div>
   </div>
 </section>
@@ -706,10 +710,6 @@ footer .cols div{display:grid;gap:6px}
       <div class="st">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v1M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.4l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15"/></svg></span>
         <div><b data-i18n="fl3">Massaj</b><small data-i18n="fl_3">bir vaqtda 3 kishi</small></div>
-      </div>
-      <div class="loop">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>
-        <span data-i18n="fl_loop">Guruhlar joy almashadi — har kim hammasidan o‘tadi, hech kim kutib qolmaydi.</span>
       </div>
     </div>
   </div>
@@ -790,29 +790,23 @@ footer .cols div{display:grid;gap:6px}
     <div class="sec-head">
       <h2 data-i18n="loc_h2">Bizni qanday topish mumkin</h2>
     </div>
-    <div class="loc-grid">
+    <div class="addr">
       <div>
-        <div class="addr">
-          <div class="a" data-i18n="loc_addr">Toshkent, Yunusobod, Farog‘at 2-tor ko‘chasi, 38</div>
-          <div class="h" data-i18n="loc_hint">259-maktab yonida · har kuni 11:00–23:00</div>
-          <ol class="way">
-            <li data-i18n="w1">Katta yozuvli yashil pavilyonni toping — yonida King Somsa.</li>
-            <li data-i18n="w2">Qora eshikdan kiring.</li>
-            <li data-i18n="w3">Yashil zinadan pastga tushing — siz yetib keldingiz!</li>
-          </ol>
-          <div class="btns">
+        <div class="a" data-i18n="loc_addr">Toshkent, Yunusobod, Farog‘at 2-tor ko‘chasi, 38</div>
+        <div class="h" data-i18n="loc_hint">259-maktab yonida · har kuni 11:00–23:00</div>
+        <div class="btns">
             <a class="btn btn-main btn-sm" href="https://yandex.uz/maps/?rtext=~41.376512%2C69.282110&amp;rtt=auto" target="_blank" rel="noopener"><span data-i18n="btn_route_ya">Yandex: yo‘nalish</span></a>
             <a class="btn btn-ghost btn-sm" href="https://www.google.com/maps/dir/?api=1&amp;destination=41.376512,69.282110" target="_blank" rel="noopener">Google Maps</a>
-          </div>
-        </div>
-        <div class="photos">
-          <figure><img src="img/facade.jpg" alt="" loading="lazy" width="900" height="1600"><figcaption data-i18n="ph1">1 · Yashil pavilyon</figcaption></figure>
-          <figure><img src="img/stairs.jpg" alt="" loading="lazy" width="900" height="1200"><figcaption data-i18n="ph2">3 · Yashil zina</figcaption></figure>
         </div>
       </div>
-      <div class="map">
+      <ol class="way">
+        <li data-i18n="w1">Katta yozuvli yashil pavilyonni toping — yonida King Somsa.</li>
+        <li data-i18n="w2">Qora eshikdan kiring.</li>
+        <li data-i18n="w3">Yashil zinadan pastga tushing — siz yetib keldingiz!</li>
+      </ol>
+    </div>
+    <div class="map">
         <iframe id="mapFrame" title="Yandex Map" loading="lazy" src="https://yandex.uz/map-widget/v1/?ll=69.282110%2C41.376512&amp;z=18&amp;pt=69.282110%2C41.376512%2Cpm2grm&amp;lang=uz_UZ"></iframe>
-      </div>
     </div>
   </div>
 </section>
@@ -970,7 +964,6 @@ footer .cols div{display:grid;gap:6px}
     gr_lead:'Надоели жирный фастфуд и бесконечный плов? Проведите время с пользой для тела. Компания из 5–7 человек — без проблем: все успеют всё по очереди.',
     btn_group:'Записаться компанией',
     fl_head:'человек в компании', fl1:'Кедровая бочка', fl2:'Сауна и бассейн', fl3:'Массаж', fl_3:'одновременно 3 человека',
-    fl_loop:'Группы меняются местами — каждый проходит всё, никто не ждёт без дела.',
     pr_h2:'Цена',
     of_h:'Фитобочка + сауна + бассейн + массаж',
     of1:'Кедровая фитобочка', of2:'Финская сауна', of3:'Бассейн', of4:'Оздоровительный массаж — 40 минут',
@@ -980,7 +973,7 @@ footer .cols div{display:grid;gap:6px}
     loc_h2:'Как нас найти',
     loc_addr:'Ташкент, Юнусабад, 2-й проезд Фарогат, 38', loc_hint:'Рядом со школой № 259 · каждый день 11:00–23:00',
     w1:'Найдите зелёный павильон с большой вывеской — рядом King Somsa.', w2:'Заходите в чёрную дверь.', w3:'Спускайтесь по зелёной лестнице — вы на месте!',
-    btn_route_ya:'Маршрут в Яндексе', ph1:'1 · Зелёный павильон', ph2:'3 · Зелёная лестница',
+    btn_route_ya:'Маршрут в Яндексе',
     bk_h2:'Быстрая запись',
     bk_p:'Выберите варианты — в Telegram откроется готовое сообщение, останется нажать «Отправить». Администратор подскажет свободное время.',
     bk_alt:'Или позвоните:',
@@ -1016,7 +1009,7 @@ footer .cols div{display:grid;gap:6px}
         return when + ' fitobochka, sauna, basseyn va massaj protsedurasiga yozilmoqchimiz. ' + n + ' kishi bo‘lib kelamiz (' + (w ? 'ayollar' : 'erkaklar') + '). Qachon kelsak bo‘ladi?';
       },
       days:['Ya','Du','Se','Ch','Pa','Ju','Sh'],
-      mWeek:'13:00–23:00 · erkaklar', mWkend:'11:00–23:00 · erkaklar',
+      wLabel:'ayollar', mLabel:'erkaklar',
       openW:'Hozir ochiq · ayollar soati (13:00 gacha)',
       openM:'Hozir ochiq · erkaklar soati (23:00 gacha)',
       closed:'Hozir yopiq · 11:00 da ochilamiz',
@@ -1037,7 +1030,7 @@ footer .cols div{display:grid;gap:6px}
         return 'Хотим записаться на процедуру: фитобочка, сауна, бассейн и массаж — ' + when + '. Нас ' + n + ' (' + (w ? 'женщины' : 'мужчины') + '). Когда можно прийти?';
       },
       days:['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
-      mWeek:'13:00–23:00 · мужчины', mWkend:'11:00–23:00 · мужчины',
+      wLabel:'женщины', mLabel:'мужчины',
       openW:'Сейчас открыто · женские часы (до 13:00)',
       openM:'Сейчас открыто · мужские часы (до 23:00)',
       closed:'Сейчас закрыто · откроемся в 11:00',
@@ -1084,8 +1077,8 @@ footer .cols div{display:grid;gap:6px}
       var row = document.createElement('div');
       row.className = 'row' + (d === today ? ' today' : '');
       row.innerHTML = '<span class="d">' + L.days[d] + '</span><div class="bar">' +
-        (weekday ? '<span class="w">11–13</span>' : '') +
-        '<span class="m">' + (weekday ? L.mWeek : L.mWkend) + '</span></div>';
+        (weekday ? '<span class="w">11:00–13:00 <i>' + L.wLabel + '</i></span>' : '') +
+        '<span class="m">' + (weekday ? '13:00–23:00' : '11:00–23:00') + ' <i>' + L.mLabel + '</i></span></div>';
       box.appendChild(row);
     });
   }
